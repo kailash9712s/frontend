@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <style>
+  .brochure-download {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #F4A460
+      0%, #095adb 100%);
+      padding: 2rem;
+  }
+
+  .download-container {
+      background: white;
+      padding: 3rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+  }
+
+  .download-icon {
+      font-size: 4rem;
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+  }
+
+  .download-title {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+  }
+
+  .download-description {
+      color: #666;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+  }
+
+  .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #F4A460
+      0%, #095adb 100%);;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: pointer;
+  }
+
+  .download-btn:hover {
+      background: linear-gradient(135deg, #F4A460
+      0%, #095adb 100%);
+      transform: translateY(-2px);
+  }
+
+  .download-btn i {
+      font-size: 1.2rem;
+  }
+
+  /* Loading animation */
+  .bx-spin {
+      animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+  }
+
+  /* Notification animation */
+  @keyframes slideOut {
+      from { transform: translateX(0); opacity: 1; }
+      to { transform: translateX(100%); opacity: 0; }
+  }
+
+  @media (max-width: 768px) {
+      .download-container {
+          padding: 2rem;
+      }
+
+      .download-title {
+          font-size: 1.5rem;
+      }
+  }
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+    rel="icon"
+    href="./assets/image/WhatsApp Image 2025-03-11 at 18.38.45_5e99dba7.JPG"
+  />
+
+  <title>Sat Shri Steel</title>
+
+  <!-- Swiper JS CSS-->
+  <link rel="stylesheet" href="Css/swiper-bundle.min.css" />
+
+  <!-- Scroll Reveal -->
+  <link rel="stylesheet" href="Css/scrollreveal.min.js" />
+
+  <!-- Boxicons -->
+  <link
+    href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="Css/style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav container flex">
+      <a href="#" class="logo-content flex">
+        <img src="./assets/image/WhatsApp Image 2025-03-11 at 18.38.45_5e99dba7.JPG" class="logo-icon" />
+        <span class="logo-text">Sat Shri Steel</span>
+      </a>
+      <div class="menu-content">
+        <ul class="menu-list flex">
+          <li><a href="index.html" class="nav-link ">Home</a></li>
+          <li><a href="About.html" class="nav-link ">About</a></li>
+          <li><a href="Project.html" class="nav-link">Projects</a></li>
+          <li><a href="Brochure.html" class="nav-link active-navlink">Brochure</a></li>
+        </ul>
+        <div class="media-icon flex">
+          <!-- specify the link                 -->
+          <a href="https://www.facebook.com/share/1Ama7NjH3b/"><i class="bx bxl-facebook"></i></a>
+          
+          <a href="https://www.instagram.com/satshree_steel?igsh=NHUydGh2NmZoZGdt"><i class="bx bxl-instagram"></i></a>
+        </div>
+
+       
+        <i class="bx bx-x navClose-btn"></i>
+      </div>
+      <div class="content-contnct flex">
+        <i class="bx bx-phone phone-icon"></i>
+        <span class="phone-number">+91 9909042114</span>
+      </div>
+      <i class="bx bx-menu navOpen-btn"></i>
+    </nav>
+  </header>
+  <main>
+    <section class="brochure-download">
+        <div class="download-container">
+            <i class='bx bxs-file-pdf download-icon'></i>
+            <h1 class="download-title">Download Our Brochure</h1>
+            <p class="download-description">
+                Get detailed information about our products, services, and projects. 
+                Download our comprehensive brochure to learn more about Sat Shri Steel.
+            </p>
+            <a href="./assets/pdf/brochure.pdf" class="download-btn" download>
+                <i class='bx bxs-download'></i>
+                Download Brochure
+            </a>
+        </div>
+    </section>
+  </main>
+
+    <!-- Footer Section -->
+    <footer class="section footer">
+      <div class="footer-container container">
+        <div class="footer-content">
+          <a href="#" class="logo-content flex">
+            <img src="./assets/image/WhatsApp Image 2025-03-11 at 18.38.45_5e99dba7.JPG" class="logo-icon" />
+            <span class="logo-text">Sat Shri Steel</span>
+          </a>
+
+          <div class="footer-location flex"onclick="window.location.href='https://www.google.com/maps?q=21.3030235,72.9168464'">
+            <i class='bx bx-map map-icon'></i>
+            <div class="location-text">
+              <p>Krishna Farm,Near Bharat Way Bridge,N.H.8,Kosamadi,Surat</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-linkContent">
+          <ul class="footer-links">
+            <h4 class="footerLinks-title">Facility</h4>
+            <li><a href="" class="footer-link">Steel Structure</a></li>
+            <li><a href="" class="footer-link">Dom</a></li>
+            <li><a href="" class="footer-link">Industrial Dom</a></li>
+          </ul>
+          <ul class="footer-links">
+            <h4 class="footerLinks-title">Support</h4>
+            <li><a href="About.html" class="footer-link">About Us</a></li>
+            
+            <li><a href="" class="footer-link">Privacy Policy</a></li>
+            <li><a href="" class="footer-link">Help Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-copyright">All Rights Reserved</div>
+    </footer>
+
+    <!-- Scroll Up -->
+    <a href="#home" class="scrollUp-btn flex">
+      <i class='bx bx-up-arrow-alt scrollUp-icon'></i>
+    </a>
+  </main>
+
+  <!-- Swiper JS -->
+  <script src="JS/swiper-bundle.min.js"></script>
+
+  <!-- Scroll Reveal -->
+  <script src="JS/scrollreveal.js"></script>
+
+  <!-- JavaScript -->
+  <script src="JS/script.js"></script>
+  
+</body>
+</html>

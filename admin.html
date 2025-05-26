@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Portfolio Website</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/responsive.css">
+    <style>
+        .admin-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .admin-title {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+        
+        .admin-section {
+            margin-bottom: 30px;
+        }
+        
+        .admin-section h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .api-key-display {
+            display: flex;
+            align-items: center;
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        
+        .api-key-text {
+            flex-grow: 1;
+            font-family: monospace;
+            word-break: break-all;
+        }
+        
+        .api-key-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .subscribers-list {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        
+        .subscriber-item {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .subscriber-item:last-child {
+            border-bottom: none;
+        }
+        
+        .status-message {
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        
+        .status-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        
+        .status-error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1 class="admin-title">Admin Panel</h1>
+            <button id="logout-btn" class="btn btn-secondary">Logout</button>
+        </div>
+        
+        <div class="admin-section">
+            <h2>API Key Management</h2>
+            <div class="api-key-display">
+                <div class="api-key-text" id="api-key-text">Loading...</div>
+                <div class="api-key-actions">
+                    <button id="copy-key-btn" class="btn btn-primary">Copy</button>
+                    <button id="regenerate-key-btn" class="btn btn-danger">Regenerate</button>
+                </div>
+            </div>
+            <div id="api-key-status" class="status-message hidden"></div>
+        </div>
+        
+        <div class="admin-section">
+            <h2>Subscribers</h2>
+            <div class="subscribers-list" id="subscribers-list">
+                <div class="subscriber-item">Loading subscribers...</div>
+            </div>
+            <div id="subscribers-status" class="status-message hidden"></div>
+        </div>
+    </div>
+    
+    <script src="JS/api-utils.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if API key is valid
+            ApiUtils.validateApiKey().then(valid => {
+                if (!valid) {
+                    // Redirect to login if API key is invalid
+                    window.location.href = 'index.html';
+                } else {
+                    // Load API key and subscribers
+                    loadApiKey();
+                    loadSubscribers();
+                }
+            });
+            
+            // Copy API key button
+            document.getElementById('copy-key-btn').addEventListener('click', function() {
+                const apiKeyText = document.getElementById('api-key-text').textContent;
+                navigator.clipboard.writeText(apiKeyText).then(() => {
+                    showStatus('api-key-status', 'API key copied to clipboard!', 'success');
+                }).catch(err => {
+                    showStatus('api-key-status', 'Failed to copy API key', 'error');
+                });
+            });
+            
+            // Regenerate API key button
+            document.getElementById('regenerate-key-btn').addEventListener('click', function() {
+                if (confirm('Are you sure you want to regenerate the API key? This will invalidate the current key.')) {
+                    regenerateApiKey();
+                }
+            });
+            
+            // Logout button
+            document.getElementById('logout-btn').addEventListener('click', function() {
+                ApiUtils.removeApiKey();
+                window.location.href = 'index.html';
+            });
+            
+            // Load API key
+            function loadApiKey() {
+                const apiKey = ApiUtils.getApiKey();
+                document.getElementById('api-key-text').textContent = apiKey;
+            }
+            
+            // Load subscribers
+            function loadSubscribers() {
+                ApiUtils.authenticatedFetch('/api/subscribers')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to load subscribers');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        const subscribersList = document.getElementById('subscribers-list');
+                        subscribersList.innerHTML = '';
+                        
+                        if (data.subscribers.length === 0) {
+                            subscribersList.innerHTML = '<div class="subscriber-item">No subscribers yet</div>';
+                        } else {
+                            data.subscribers.forEach(subscriber => {
+                                const subscriberItem = document.createElement('div');
+                                subscriberItem.className = 'subscriber-item';
+                                subscriberItem.textContent = subscriber;
+                                subscribersList.appendChild(subscriberItem);
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        showStatus('subscribers-status', 'Error loading subscribers: ' + error.message, 'error');
+                    });
+            }
+            
+            // Regenerate API key
+            function regenerateApiKey() {
+                ApiUtils.authenticatedFetch('/api/regenerate-key', {
+                    method: 'POST'
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to regenerate API key');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    ApiUtils.setApiKey(data.apiKey);
+                    loadApiKey();
+                    showStatus('api-key-status', 'API key regenerated successfully!', 'success');
+                })
+                .catch(error => {
+                    showStatus('api-key-status', 'Error regenerating API key: ' + error.message, 'error');
+                });
+            }
+            
+            // Show status message
+            function showStatus(elementId, message, type) {
+                const statusElement = document.getElementById(elementId);
+                statusElement.textContent = message;
+                statusElement.className = `status-message status-${type}`;
+                statusElement.classList.remove('hidden');
+                
+                // Hide after 3 seconds
+                setTimeout(() => {
+                    statusElement.classList.add('hidden');
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html> 

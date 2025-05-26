@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - Sat Shri Steel</title>
+        <!-- Swiper JS CSS-->
+        <link rel="stylesheet" href="Css/swiper-bundle.min.css" />
+
+        <!-- Scroll Reveal -->
+        <link rel="stylesheet" href="Css/scrollreveal.min.js" />
+    
+        <!-- Boxicons -->
+        <link
+          href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+          rel="stylesheet"
+        />
+    
+        <!-- CSS -->
+        <link rel="stylesheet" href="Css/style.css" />
+    <style>
+        .header{
+            background: linear-gradient(135deg, #F4A460
+            0%, #095adb 100%);
+        }
+        .project-details {
+            padding: 120px 0 60px;
+            background: #f8f9fa;
+        }
+
+        .project-details-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .project-header {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .project-header-content {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .project-header-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .project-header-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-header-info {
+            flex: 1;
+        }
+
+        .project-category {
+            color: #4c85da;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #666;
+        }
+
+        .meta-item i {
+            color: #4c85da;
+            font-size: 1.2rem;
+        }
+
+        .project-description {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .project-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            color: #4c85da;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .project-gallery {
+            margin-bottom: 40px;
+        }
+
+        .gallery-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            height: 200px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(76, 133, 218, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-zoom {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .project-features {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .features-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: #4c85da;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .feature-content h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .feature-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .related-projects {
+            margin-bottom: 40px;
+        }
+
+        .related-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .related-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .related-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .related-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .related-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .related-item:hover .related-image img {
+            transform: scale(1.1);
+        }
+
+        .related-content {
+            padding: 20px;
+        }
+
+        .related-category {
+            color: #4c85da;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .related-item-title {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .related-meta {
+            display: flex;
+            gap: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 992px) {
+            .project-header-content {
+                flex-direction: column;
+            }
+
+            .project-header-image {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2rem;
+            }
+
+            .project-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .project-header {
+                padding: 20px;
+            }
+
+            .project-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container flex">
+            <a href="#" class="logo-content flex">
+                <img src="./assets/image/WhatsApp Image 2025-03-11 at 18.38.45_5e99dba7.JPG" class="logo-icon" />
+                <span class="logo-text">Sat Shri Steel</span>
+            </a>
+            <div class="menu-content">
+                <ul class="menu-list flex">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="About.html" class="nav-link">About</a></li>
+                    <li><a href="Project.html" class="nav-link active-navlink">Projects</a></li>
+                    <li><a href="Brochure.html" class="nav-link">Brochure</a></li>
+                </ul>
+                <div class="media-icon flex">
+                    <a href="https://www.facebook.com/share/1Ama7NjH3b/"><i class="bx bxl-facebook"></i></a>
+                    <a href="https://www.instagram.com/satshree_steel?igsh=NHUydGh2NmZoZGdt"><i class="bx bxl-instagram"></i></a>
+                </div>
+                <i class="bx bx-x navClose-btn"></i>
+            </div>
+            <div class="content-contnct flex">
+                <i class="bx bx-phone phone-icon"></i>
+                <span class="phone-number">+91 9909042114</span>
+            </div>
+            <i class="bx bx-menu navOpen-btn"></i>
+        </nav>
+    </header>
+
+    <main>
+        <section class="project-details">
+            <div class="project-details-container">
+                <div class="project-header">
+                    <div class="project-header-content">
+                        <div class="project-header-image">
+                            <img src="https://www.alcox-steel.com/blog/wp-content/uploads/2024/07/steel-fabricators-in-India-feature-img.jpg" alt="" id="projectMainImage">
+                        </div>
+                        <div class="project-header-info">
+                            <div class="project-category" id="projectCategory"></div>
+                            <h1 class="project-title" id="projectTitle"></h1>
+                            <div class="project-meta">
+                                <div class="meta-item">
+                                    <i class='bx bx-map'></i>
+                                    <span id="projectLocation"></span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class='bx bx-calendar'></i>
+                                    <span id="projectDate"></span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class='bx bx-building'></i>
+                                    <span id="projectClient"></span>
+                                </div>
+                            </div>
+                            <p class="project-description" id="projectDescription"></p>
+                        </div>
+                    </div>
+                </div>
+
+               
+
+             
+
+               
+
+                        
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="section footer">
+        <div class="footer-container container">
+            <div class="footer-content">
+                <a href="#" class="logo-content flex">
+                    <img src="./assets/image/WhatsApp Image 2025-03-11 at 18.38.45_5e99dba7.JPG" class="logo-icon" />
+                    <span class="logo-text">Sat Shri Steel</span>
+                </a>
+
+                <div class="footer-location flex"onclick="window.location.href='https://www.google.com/maps?q=21.3030235,72.9168464'">
+                    <i class='bx bx-map map-icon'></i>
+                    <div class="location-text">
+                        <p>Krishna Farm,Near Bharat Way Bridge,N.H.8,Kosamadi,Surat</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-linkContent">
+                <ul class="footer-links">
+                    <h4 class="footerLinks-title">Facility</h4>
+                    <li><a href="" class="footer-link">Steel Structure</a></li>
+                    <li><a href="" class="footer-link">Dom</a></li>
+                    <li><a href="" class="footer-link">Industrial Dom</a></li>
+                </ul>
+                <ul class="footer-links">
+                    <h4 class="footerLinks-title">Support</h4>
+                    <li><a href="About.html" class="footer-link">About Us</a></li>
+                    <li><a href="" class="footer-link">Privacy Policy</a></li>
+                    <li><a href="" class="footer-link">Help Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">All Rights Reserved</div>
+    </footer>
+
+    <!-- Scroll Up -->
+    <a href="#home" class="scrollUp-btn flex">
+        <i class='bx bx-up-arrow-alt scrollUp-icon'></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script src="JS/script.js"></script>
+    <script src="JS/project-details.js"></script>
+</body>
+</html> 
