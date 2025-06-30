@@ -32,6 +32,10 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .project-header {
@@ -45,7 +49,8 @@
         .project-header-content {
             display: flex;
             gap: 40px;
-            align-items: flex-start;
+            align-items: center;
+            justify-content: center;
         }
 
         .project-header-image {
@@ -53,12 +58,17 @@
             border-radius: 10px;
             overflow: hidden;
             height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .project-header-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
+            margin: 0 auto;
         }
 
         .project-header-info {
@@ -344,7 +354,7 @@
     <!-- Header -->
     <header class="header">
         <nav class="nav container flex">
-            <a href="#" class="logo-content flex">
+            <a href="index.html" class="logo-content flex">
                 <img src="./assets/image/WhatsApp Image 2025-03-11 at 18.38.45_5e99dba7.JPG" class="logo-icon" />
                 <span class="logo-text">Sat Shri Steel</span>
             </a>
@@ -375,7 +385,7 @@
                 <div class="project-header">
                     <div class="project-header-content">
                         <div class="project-header-image">
-                            <img src="https://www.alcox-steel.com/blog/wp-content/uploads/2024/07/steel-fabricators-in-India-feature-img.jpg" alt="" id="projectMainImage">
+                            <img src="" alt="" id="projectMainImage">
                         </div>
                         <div class="project-header-info">
                             <div class="project-category" id="projectCategory"></div>
@@ -399,13 +409,23 @@
                     </div>
                 </div>
 
-               
+                <!-- Project Gallery Section -->
+                <section class="project-gallery">
+                    <h2 class="gallery-title">Gallery</h2>
+                    <div class="gallery-grid" id="projectGallery"></div>
+                </section>
 
-             
+                <!-- Project Features Section -->
+                <section class="project-features">
+                    <h2 class="features-title">Key Features</h2>
+                    <div class="features-grid" id="projectFeatures"></div>
+                </section>
 
-               
-
-                        
+                <!-- Related Projects Section -->
+                <section class="related-projects">
+                    <h2 class="related-title">Related Projects</h2>
+                    <div class="related-grid" id="relatedProjects"></div>
+                </section>
             </div>
         </section>
     </main>
@@ -419,12 +439,23 @@
                     <span class="logo-text">Sat Shri Steel</span>
                 </a>
 
-                <div class="footer-location flex"onclick="window.location.href='https://www.google.com/maps?q=21.3030235,72.9168464'">
-                    <i class='bx bx-map map-icon'></i>
-                    <div class="location-text">
-                        <p>Krishna Farm,Near Bharat Way Bridge,N.H.8,Kosamadi,Surat</p>
+                <div class="footer-location flex" style="cursor: pointer; transition: all 0.3s ease;" onclick="window.open('https://www.google.com/maps?q=21.3030235,72.9168464', '_blank')">
+                    <i class='bx bx-map map-icon' style="font-size: 3rem; color: #4dff65; margin-right: 15px;"></i>
+                    <div class="location-text" style="margin-left: 10px;">
+                      <p style="margin: 0; font-size: 1.1rem;">Krishna Farm, Near Bharat Way Bridge, N.H.8, Kosamadi, Surat</p>
+                      <small style="color: #666; font-size: 0.9rem;">Click to view on Google Maps</small>
                     </div>
-                </div>
+                  </div>
+        
+                  <!-- Social Media Icons -->
+                  <div class="footer-social flex" style="margin-top: 20px;">
+                    <a href="https://www.facebook.com/share/1Ama7NjH3b/" style="font-size: 2.5rem; margin-right: 20px; color: #1877f2;">
+                      <i class="bx bxl-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/satshree_steel?igsh=NHUydGh2NmZoZGdt" style="font-size: 2.5rem; color: #e4405f;">
+                      <i class="bx bxl-instagram"></i>
+                    </a>
+                  </div>
             </div>
             <div class="footer-linkContent">
                 <ul class="footer-links">
@@ -437,7 +468,7 @@
                     <h4 class="footerLinks-title">Support</h4>
                     <li><a href="About.html" class="footer-link">About Us</a></li>
                     <li><a href="" class="footer-link">Privacy Policy</a></li>
-                    <li><a href="" class="footer-link">Help Us</a></li>
+                   
                 </ul>
             </div>
         </div>

@@ -6,12 +6,12 @@ const projectsData = {
         location: "Mumbai, Maharashtra",
         date: "2020",
         client: "ABC Industries",
-        description: "A state-of-the-art steel febrication facility with advanced equipments. The project involved the construction of a 50,000 sq ft manufacturing unit with cutting-edge technology and automation systems.",
-        mainImage: "https://www.alcox-steel.com/blog/wp-content/uploads/2024/07/steel-fabricators-in-India-feature-img.jpg",
+        description: "A state-of-the-art steel fabrication facility with advanced equipment. The project involved the construction of a 50,000 sq ft manufacturing unit with cutting-edge technology and automation systems.",
+        mainImage: "assets/image/WhatsApp Image 2025-05-12 at 22.14.49_9cd5fa8a.jpg",
         gallery: [
-            "https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-            "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-            "https://images.unsplash.com/photo-1581092334247-ddef2a41f178?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            "assets/image/WhatsApp Image 2025-05-12 at 22.14.49_9cd5fa8a.jpg",
+            "assets/image/WhatsApp Image 2025-05-12 at 22.13.22_81097d88.jpg",
+            "assets/image/WhatsApp Image 2025-05-12 at 22.14.50_4ce7f7e7.jpg"
         ],
         features: [
             {
@@ -37,17 +37,17 @@ const projectsData = {
         ]
     },
     project2: {
-        category: "Dom",
-        title: "Dom",
-        location: "Surat, Gujrat",
+        category: "Dom Architecture",
+        title: "Dom Architecture",
+        location: "Surat, Gujarat",
         date: "2021",
         client: "XYZ Corporation",
         description: "A complex featuring innovative steel architecture and sustainable design. The Dom is designed to maximize natural light and energy efficiency while providing modern amenities for businesses.",
-        mainImage: "https://saicorian.com/wp-content/uploads/2019/04/SAICORIAN-STEEL-FAB-e1695513479533.jpg",
+        mainImage: "assets/image/WhatsApp Image 2025-05-12 at 22.13.22_81097d88.jpg",
         gallery: [
-            "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-            "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-            "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            "assets/image/WhatsApp Image 2025-05-12 at 22.13.22_81097d88.jpg",
+            "assets/image/WhatsApp Image 2025-05-12 at 22.14.50_4ce7f7e7.jpg",
+            "assets/image/WhatsApp Image 2025-05-12 at 22.14.49_9cd5fa8a.jpg"
         ],
         features: [
             {
@@ -71,6 +71,78 @@ const projectsData = {
                 description: "Multi-level parking with EV charging stations"
             }
         ]
+    },
+    project3: {
+        category: "Industrial",
+        title: "Steel Structure",
+        location: "Ahmedabad, Gujarat",
+        date: "2022",
+        client: "PQR Industries",
+        description: "A modern steel structure project showcasing innovative design and engineering excellence. The project features advanced structural elements and sustainable construction practices.",
+        mainImage: "assets/image/WhatsApp Image 2025-05-12 at 22.06.27_9f26849a.jpg",
+        gallery: [
+            "assets/image/WhatsApp Image 2025-05-12 at 22.06.27_9f26849a.jpg",
+            "assets/image/WhatsApp Image 2025-05-12 at 22.14.50_4ce7f7e7.jpg",
+            "assets/image/WhatsApp Image 2025-05-12 at 22.14.49_9cd5fa8a.jpg"
+        ],
+        features: [
+            {
+                icon: "bx-arch",
+                title: "Structural Design",
+                description: "Advanced structural engineering with optimal load distribution"
+            },
+            {
+                icon: "bx-wrench",
+                title: "Quality Materials",
+                description: "High-grade steel and premium construction materials"
+            },
+            {
+                icon: "bx-timer",
+                title: "Timely Delivery",
+                description: "Efficient project management and on-time completion"
+            },
+            {
+                icon: "bx-check-circle",
+                title: "Quality Assurance",
+                description: "Rigorous quality control and testing procedures"
+            }
+        ]
+    },
+    project4: {
+        category: "Dom",
+        title: "Dom",
+        location: "Surat, Gujarat",
+        date: "2021",
+        client: "YZ Corporation",
+        description: "A complex featuring innovative steel architecture and sustainable design. The Dom is designed to maximize natural light and energy efficiency while providing modern amenities for businesses.",
+        mainImage: "assets/image/WhatsApp Image 2025-05-12 at 22.06.09_fa93bd0c.jpg",
+        gallery: [
+            "assets/image/WhatsApp Image 2025-05-12 at 22.06.09_fa93bd0c.jpg",
+            "assets/image/WhatsApp Image 2025-05-12 at 22.14.50_4ce7f7e7.jpg",
+            "assets/image/WhatsApp Image 2025-05-12 at 22.14.49_9cd5fa8a.jpg"
+        ],
+        features: [
+            {
+                icon: "bx-wrench",
+                title: "Custom Fabrication",
+                description: "Tailored steel fabrication solutions for specific requirements"
+            },
+            {
+                icon: "bx-cog",
+                title: "Precision Engineering",
+                description: "High-precision manufacturing and assembly processes"
+            },
+            {
+                icon: "bx-shield",
+                title: "Quality Control",
+                description: "Stringent quality checks at every stage of production"
+            },
+            {
+                icon: "bx-timer",
+                title: "Efficient Delivery",
+                description: "Timely project completion with optimal resource utilization"
+            }
+        ]
     }
 };
 
@@ -88,73 +160,84 @@ function loadProjectDetails() {
     const project = projectsData[projectId];
 
     // Update main content
-    document.getElementById('projectMainImage').src = project.mainImage;
-    document.getElementById('projectCategory').textContent = project.category;
-    document.getElementById('projectTitle').textContent = project.title;
-    document.getElementById('projectLocation').textContent = project.location;
-    document.getElementById('projectDate').textContent = project.date;
-    document.getElementById('projectClient').textContent = project.client;
-    document.getElementById('projectDescription').textContent = project.description;
-
-    // Update stats
-    document.getElementById('projectArea').textContent = project.area;
-    document.getElementById('projectDuration').textContent = project.duration;
-    document.getElementById('projectBudget').textContent = project.budget;
-    document.getElementById('projectTeam').textContent = project.team;
+    const mainImageEl = document.getElementById('projectMainImage');
+    if (mainImageEl) {
+        mainImageEl.src = project.mainImage;
+        mainImageEl.onerror = () => { mainImageEl.src = 'assets/image/fallback.jpg'; };
+    }
+    const categoryEl = document.getElementById('projectCategory');
+    if (categoryEl) categoryEl.textContent = project.category;
+    const titleEl = document.getElementById('projectTitle');
+    if (titleEl) titleEl.textContent = project.title;
+    const locationEl = document.getElementById('projectLocation');
+    if (locationEl) locationEl.textContent = project.location;
+    const dateEl = document.getElementById('projectDate');
+    if (dateEl) dateEl.textContent = project.date;
+    const clientEl = document.getElementById('projectClient');
+    if (clientEl) clientEl.textContent = project.client;
+    const descEl = document.getElementById('projectDescription');
+    if (descEl) descEl.textContent = project.description;
 
     // Load gallery
     const galleryContainer = document.getElementById('projectGallery');
-    galleryContainer.innerHTML = project.gallery.map(image => `
-        <div class="gallery-item">
-            <img src="${image}" alt="${project.title}">
-            <div class="gallery-overlay">
-                <i class='bx bx-zoom-in gallery-zoom'></i>
+    if (galleryContainer) {
+        galleryContainer.innerHTML = project.gallery.map(image => `
+            <div class="gallery-item">
+                <img src="${image}" alt="${project.title}">
+                <div class="gallery-overlay">
+                    <i class='bx bx-zoom-in gallery-zoom'></i>
+                </div>
             </div>
-        </div>
-    `).join('');
+        `).join('');
+    }
 
     // Load features
     const featuresContainer = document.getElementById('projectFeatures');
-    featuresContainer.innerHTML = project.features.map(feature => `
-        <div class="feature-item">
-            <div class="feature-icon">
-                <i class='bx ${feature.icon}'></i>
+    if (featuresContainer) {
+        featuresContainer.innerHTML = project.features.map(feature => `
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class='bx ${feature.icon}'></i>
+                </div>
+                <div class="feature-content">
+                    <h4>${feature.title}</h4>
+                    <p>${feature.description}</p>
+                </div>
             </div>
-            <div class="feature-content">
-                <h4>${feature.title}</h4>
-                <p>${feature.description}</p>
-            </div>
-        </div>
-    `).join('');
+        `).join('');
+    }
 
     // Load related projects
     const relatedProjectsContainer = document.getElementById('relatedProjects');
-    const relatedProjects = Object.entries(projectsData)
-        .filter(([id]) => id !== projectId)
-        .slice(0, 3);
+    if (relatedProjectsContainer) {
+        const relatedProjects = Object.entries(projectsData)
+            .filter(([id]) => id !== projectId)
+            .slice(0, 3);
 
-    relatedProjectsContainer.innerHTML = relatedProjects.map(([id, relatedProject]) => `
-        <div class="related-item">
-            <div class="related-image">
-                <img src="${relatedProject.mainImage}" alt="${relatedProject.title}">
-            </div>
-            <div class="related-content">
-                <div class="related-category">${relatedProject.category}</div>
-                <h3 class="related-item-title">${relatedProject.title}</h3>
-                <div class="related-meta">
-                    <span><i class='bx bx-map'></i> ${relatedProject.location}</span>
-                    <span><i class='bx bx-calendar'></i> ${relatedProject.date}</span>
+        relatedProjectsContainer.innerHTML = relatedProjects.map(([id, relatedProject]) => `
+            <div class="related-item" data-id="${id}">
+                <div class="related-image">
+                    <img src="${relatedProject.mainImage}" alt="${relatedProject.title}">
+                </div>
+                <div class="related-content">
+                    <div class="related-category">${relatedProject.category}</div>
+                    <h3 class="related-item-title">${relatedProject.title}</h3>
+                    <div class="related-meta">
+                        <span><i class='bx bx-map'></i> ${relatedProject.location}</span>
+                        <span><i class='bx bx-calendar'></i> ${relatedProject.date}</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    `).join('');
+        `).join('');
 
-    // Add click event to related projects
-    document.querySelectorAll('.related-item').forEach((item, index) => {
-        item.addEventListener('click', () => {
-            window.location.href = `project-details.html?id=${relatedProjects[index][0]}`;
+        // Add click event to related projects
+        document.querySelectorAll('.related-item').forEach((item) => {
+            item.addEventListener('click', () => {
+                const id = item.getAttribute('data-id');
+                window.location.href = `project-details.html?id=${id}`;
+            });
         });
-    });
+    }
 }
 
 // Initialize gallery lightbox
